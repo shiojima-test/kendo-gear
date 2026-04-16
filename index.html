@@ -8,13 +8,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root{
-  --teal:#1e90ff;--teal-d:#1470cc;--teal-dim:rgba(30,144,255,.15);
-  --orange:#ff6b00;--orange-dim:rgba(255,107,0,.15);
-  --blue:#1e90ff;--blue-dim:rgba(30,144,255,.12);
-  --cream:#e8f4ff;--cream-dim:rgba(232,244,255,.1);
-  --bg:#0a1628;--bg2:#0d1e34;--bg3:#112240;--bg4:#142850;
-  --border:rgba(30,144,255,.12);--border2:rgba(30,144,255,.22);
-  --text:#e8f4ff;--text2:#4a7aaa;--text3:#2a4a6a;
+  --teal:#3AABA8;--teal-d:#2e918e;--teal-dim:rgba(58,171,168,.15);
+  --orange:#E88A0A;--orange-dim:rgba(232,138,10,.15);
+  --blue:#2E8EC4;--blue-dim:rgba(46,142,196,.12);
+  --cream:#F5E4C4;--cream-dim:rgba(245,228,196,.3);
+  --bg:#F5E4C4;--bg2:#FFF8EE;--bg3:#FFEFD5;--bg4:#FFE4B5;
+  --border:rgba(44,26,14,.12);--border2:rgba(44,26,14,.22);
+  --text:#2C1A0E;--text2:#7A5C3E;--text3:#A08060;
   --fn:'Barlow Condensed',sans-serif;--fj:'Meiryo','Yu Gothic',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -23,8 +23,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--fj);min-height:100
 /* ── HEADER ── */
 header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:32px;height:32px;background:var(--orange);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fn);font-weight:900;font-size:13px;color:#fff;letter-spacing:1px}
-.logo-text{font-family:var(--fn);font-weight:900;font-size:20px;letter-spacing:2px;color:#fff}
+.logo-mark{width:32px;height:32px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fn);font-weight:900;font-size:13px;color:#fff;letter-spacing:1px}
+.logo-text{font-family:var(--fn);font-weight:900;font-size:20px;letter-spacing:2px;color:var(--text)}
 .logo-sub{font-size:9px;color:var(--text2);letter-spacing:3px;font-family:var(--fn)}
 .hdr-r{display:flex;align-items:center;gap:8px}
 .sdot{width:8px;height:8px;border-radius:50%;background:var(--text3);transition:all .3s}
@@ -32,7 +32,7 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16p
 .sdot.cal{background:var(--orange);box-shadow:0 0 8px var(--orange);animation:blink .4s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .slabel{font-size:11px;color:var(--text2);font-family:var(--fn);letter-spacing:.5px;min-width:60px}
-#connectBtn{background:var(--orange);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-family:var(--fn);font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;letter-spacing:1px}
+#connectBtn{background:var(--teal);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-family:var(--fn);font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;letter-spacing:1px}
 #connectBtn:hover{background:#e05e00}
 #connectBtn.on{background:var(--bg3);color:var(--text2);border:1px solid var(--border2)}
 
@@ -294,7 +294,120 @@ main{padding:12px 14px 80px;max-width:1100px;margin:0 auto}
 
 <main>
 
-
+<!-- ══ VIEW 1: 種目選択（KENDO GEAR: 削除済み） ══ -->
+<!-- v-sport removed for kendo-fixed mode -->
+<div id="v-sport-removed" style="display:none">
+  <div class="sport-hero">
+    <h1>KENDO <span>GEAR</span></h1>
+  </div>
+  <div class="sport-grid">
+    <div class="sport-card" onclick="selectSport('ball','#1e90ff')">
+      <div class="sport-icon-wrap" style="background:rgba(30,144,255,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="11" stroke="#1e90ff" stroke-width="2"/>
+          <path d="M14 3 C10 7 10 12 14 14 C18 16 22 14 22 14" stroke="#1e90ff" stroke-width="1.5" fill="none"/>
+          <path d="M6 8 C8 10 12 11 14 14 C16 17 15 21 14 25" stroke="#1e90ff" stroke-width="1.5" fill="none"/>
+          <path d="M22 20 C18 18 14 18 12 16 C10 14 8 10 6 8" stroke="#1e90ff" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">球技</div>
+      <div class="sport-card-sub">サッカー・バスケ・バレー</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('swing','#ff6b00')">
+      <div class="sport-icon-wrap" style="background:rgba(255,107,0,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="22" cy="6" r="3.5" stroke="#ff6b00" stroke-width="2"/>
+          <path d="M20 9 L8 22" stroke="#ff6b00" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M5 18 L10 24" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 21 L7 25" stroke="#ff6b00" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">スイング系</div>
+      <div class="sport-card-sub">野球・テニス・卓球・ゴルフ</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('training','#1e90ff')">
+      <div class="sport-icon-wrap" style="background:rgba(30,144,255,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="3" y="12" width="4" height="8" rx="2" fill="#1e90ff"/>
+          <rect x="21" y="12" width="4" height="8" rx="2" fill="#1e90ff"/>
+          <rect x="7" y="14" width="14" height="4" rx="2" fill="#1e90ff"/>
+          <rect x="10" y="10" width="8" height="8" rx="1" fill="#1e90ff" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">体幹トレーニング</div>
+      <div class="sport-card-sub">腕立て・スクワット・プランク</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('budo','#ff6b00')">
+      <div class="sport-icon-wrap" style="background:rgba(255,107,0,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="6" r="3" stroke="#ff6b00" stroke-width="2"/>
+          <path d="M14 9 L14 18" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14 13 L8 10" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14 13 L20 10" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14 18 L10 24" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14 18 L18 24" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">武道・格闘技</div>
+      <div class="sport-card-sub">柔道・空手・剣道・ボクシング</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('track','#1e90ff')">
+      <div class="sport-icon-wrap" style="background:rgba(30,144,255,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="17" cy="5" r="3" stroke="#1e90ff" stroke-width="2"/>
+          <path d="M17 8 L15 14 L10 17" stroke="#1e90ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 14 L17 20 L14 26" stroke="#1e90ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 20 L22 23" stroke="#1e90ff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">陸上・走り</div>
+      <div class="sport-card-sub">短距離・長距離・跳躍</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('gym','#ff6b00')">
+      <div class="sport-icon-wrap" style="background:rgba(255,107,0,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="5" r="3" stroke="#ff6b00" stroke-width="2"/>
+          <path d="M14 8 L14 16" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 11 L14 13 L20 11" stroke="#ff6b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 16 L11 22" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14 16 L17 22" stroke="#ff6b00" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 11 L5 16" stroke="#ff6b00" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M20 11 L23 16" stroke="#ff6b00" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">体操・ダンス</div>
+      <div class="sport-card-sub">器械体操・新体操・ダンス</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('daily','#2ecc71')">
+      <div class="sport-icon-wrap" style="background:rgba(46,204,113,.15)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="17" cy="4" r="2.5" stroke="#2ecc71" stroke-width="2"/>
+          <path d="M17 7 L15 13 L11 16" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 13 L16 19 L13 25" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 19 L20 23" stroke="#2ecc71" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="7" cy="24" rx="2.5" ry="1.2" fill="#2ecc71" opacity=".4"/>
+          <ellipse cx="13" cy="26" rx="2.5" ry="1.2" fill="#2ecc71" opacity=".65"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">日常動作</div>
+      <div class="sport-card-sub">歩く・階段・立ち座り・荷物</div>
+    </div>
+    <div class="sport-card" onclick="selectSport('free','#e8f4ff')">
+      <div class="sport-icon-wrap" style="background:rgba(255,255,255,.08)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="10" stroke="#e8f4ff" stroke-width="2" opacity=".5"/>
+          <line x1="14" y1="4" x2="14" y2="8" stroke="#e8f4ff" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="20" x2="14" y2="24" stroke="#e8f4ff" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4" y1="14" x2="8" y2="14" stroke="#e8f4ff" stroke-width="2" stroke-linecap="round"/>
+          <line x1="20" y1="14" x2="24" y2="14" stroke="#e8f4ff" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="14" cy="14" r="3" fill="#e8f4ff" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="sport-card-name">自由測定</div>
+      <div class="sport-card-sub">全指標から自由に選ぶ</div>
+    </div>
+  </div>
+</div>
 
 <!-- ══ VIEW 3: 測定 ══ -->
 <div id="v-meas" class="view active">
@@ -509,7 +622,7 @@ main{padding:12px 14px 80px;max-width:1100px;margin:0 auto}
           <div class="sstat"><div class="sstat-val" id="sDur">—</div><div class="sstat-lbl">区間長</div></div>
           <div class="sstat"><div class="sstat-val" id="sPeaks">—</div><div class="sstat-lbl">打突数</div></div>
           <div class="sstat"><div class="sstat-val" id="sCadR">—</div><div class="sstat-lbl">平均テンポ</div></div>
-          <div class="sstat"><div class="sstat-val" id="sImpR">—</div><div class="sstat-lbl">平均パワーG</div></div>
+          <div class="sstat"><div class="sstat-val" id="sImpR">—</div><div class="sstat-lbl">平均打突強度G</div></div>
           <div class="sstat"><div class="sstat-val" id="sMaxG">—</div><div class="sstat-lbl">最大角速度</div></div>
         </div>
         <button id="rangeAiBtn" disabled>🤖 AI分析</button>
@@ -1113,7 +1226,7 @@ function renderBigNums(p, takeIdx) {
   const grid = document.getElementById('bigNumGrid');
   const d = takeIdx >= 0 && p.takes[takeIdx]?.data ? p.takes[takeIdx].data : null;
   const metrics = [
-    { lbl:'最大パワー', val: d ? d.maxImpact.toFixed(2) : '—', unit:'G', color:'var(--orange)', pct: d ? Math.min(100, d.maxImpact/4*100) : 0 },
+    { lbl:'最大打突強度', val: d ? d.maxImpact.toFixed(2) : '—', unit:'G', color:'var(--orange)', pct: d ? Math.min(100, d.maxImpact/4*100) : 0 },
     { lbl:'平均テンポ', val: d ? (d.maxCadence>0?Math.round(d.maxCadence):'—') : '—', unit:'rpm', color:'var(--teal)', pct: d ? Math.min(100, d.maxCadence/120*100) : 0 },
     { lbl:'パワー均一性', val: d?.vForm||'—', unit:'/100', color:'var(--blue)', pct: d?.vForm ? parseInt(d.vForm) : 0 },
     { lbl:'最大角速度', val: d ? (d.maxGyro>0?Math.round(d.maxGyro):'—') : '—', unit:'°/s', color:'#2ecc71', pct: d ? Math.min(100, d.maxGyro/400*100) : 0 },
@@ -1146,7 +1259,7 @@ function renderTakeCompare(p) {
     type: 'bar',
     data: { labels, datasets: [
       { label:'最大パワー G', data: powers, backgroundColor: done.map((_,i)=>`rgba(255,107,0,${0.4+i*0.2})`), borderRadius: 5, yAxisID:'y' },
-      { label:'最高テンポ rpm', data: cadences, backgroundColor: done.map((_,i)=>`rgba(30,144,255,${0.35+i*0.2})`), borderRadius: 5, yAxisID:'y2' },
+      { label:'最高打突テンポ rpm', data: cadences, backgroundColor: done.map((_,i)=>`rgba(30,144,255,${0.35+i*0.2})`), borderRadius: 5, yAxisID:'y2' },
     ]},
     options: {
       responsive:true, maintainAspectRatio:false, animation:false,
@@ -1183,7 +1296,7 @@ function renderTakeCompare(p) {
         </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04)">
-        <div style="font-size:11px;color:var(--text2)">最高テンポ</div>
+        <div style="font-size:11px;color:var(--text2)">最高打突テンポ</div>
         <div style="display:flex;align-items:center;gap:5px">
           <div style="font-family:var(--fn);font-size:15px;font-weight:700;color:var(--text)">${d.maxCadence>0?Math.round(d.maxCadence):'—'} rpm</div>
           ${diff(d.maxCadence, prev?.maxCadence, 'maxCadence')}
@@ -1222,7 +1335,7 @@ function buildRadarCharts() {
     norm(d.maxGyro, 400),
     norm(d.peakCount, 30),
   ];
-  const labels = ['パワー','テンポ','均一性','角速度','打突数'];
+  const labels = ['打突強度','打突テンポ','均一性','振り速度','打突数'];
 
   // 参加者間比較（最新テイクのみ）
   const latestPerPlayer = players.map(p=>{
@@ -1351,8 +1464,8 @@ function buildCmpTable() {
 
   const rows = [
     { label: '最大パワー G',   key: 'maxImpact',  fmt: v=>v.toFixed(2), higher: true },
-    { label: '平均パワー G',   key: 'avgImpact',  fmt: v=>v.toFixed(2), higher: true },
-    { label: '最高テンポ rpm', key: 'maxCadence', fmt: v=>Math.round(v), higher: true },
+    { label: '平均打突強度 G',   key: 'avgImpact',  fmt: v=>v.toFixed(2), higher: true },
+    { label: '最高打突テンポ rpm', key: 'maxCadence', fmt: v=>Math.round(v), higher: true },
     { label: '打突数',       key: 'peakCount',  fmt: v=>v, higher: true },
     { label: '最大角速度 °/s', key: 'maxGyro',    fmt: v=>Math.round(v), higher: true },
     { label: 'フォームスコア', key: 'vForm',      fmt: v=>v, higher: true,  isSnap: true },
@@ -1396,9 +1509,7 @@ function buildCmpTable() {
 
 // ══════════════ STATE ══════════════
 let currentSport = 'budo';
-let selectedIndicators = new Set();
-// KENDO GEAR: 剣道用指標を固定選択
-selectedIndicators = new Set(['power','rotation','rhythm','balance','fatigue']);
+let selectedIndicators = new Set(['power','rotation','rhythm','balance','fatigue']);
 let bleDevice, bleTX, bleRX, bleConn = false;
 let baseline = null, calibBuf = [];
 let isRec = false, stoppedTmr = null;
@@ -1775,7 +1886,7 @@ function getMetricsHTML(id) {
   const defs = {
     rhythm: `
       <div class="mi wide"><div><div class="mlbl">打突テンポ（回/分）</div><div class="msub">直近10打突平均</div><div class="mbar"><div class="mbar-f" id="bCad"></div></div></div><div><div class="mv lg" id="vCad">—</div><div class="munit">rpm</div></div></div>
-      <div class="mi"><div><div class="mlbl">最高テンポ</div><div class="msub">瞬間最大</div></div><div><div class="mv" id="vMaxCad">—</div><div class="munit">rpm</div></div></div>
+      <div class="mi"><div><div class="mlbl">最高打突テンポ</div><div class="msub">瞬間最大</div></div><div><div class="mv" id="vMaxCad">—</div><div class="munit">rpm</div></div></div>
       <div class="mi"><div><div class="mlbl">間隔</div><div class="msub">直近1打突</div></div><div><div class="mv sm" id="vIntv">—</div><div class="munit">ms</div></div></div>
       <div class="mi wide"><div><div class="mlbl">テンポ安定性 CV</div><div class="msub">低い=安定</div></div><div><div class="mv sm" id="vPitCV">—</div><div class="munit">%</div></div></div>`,
     power: `
@@ -2335,7 +2446,7 @@ document.getElementById('rangeAiBtn').addEventListener('click', async () => {
   const sd = selData, btn = document.getElementById('rangeAiBtn'), out = document.getElementById('rangeOut'), card = document.getElementById('rangeCard');
   btn.disabled = true; card.classList.add('active');
   const pct = v => Math.round(v*100);
-  document.getElementById('rangeLbl').textContent = `選択: ${pct(sd.lo)}%〜${pct(sd.hi)}% | ${sd.seStr.length}打突`;
+  document.getElementById('rangeLbl').textContent = `選択: ${pct(sd.lo)}%〜${pct(sd.hi)}% | ${sd.seStr.length}ピーク`;
   const m=Math.floor(sd.durSec/60),s=Math.round(sd.durSec%60);
   const maxImpSel=sd.seStr.length?Math.max(...sd.seStr.map(x=>x.impact)):0;
   let consist='—';
@@ -2409,20 +2520,20 @@ document.getElementById('clearBtn').addEventListener('click',()=>{
   document.getElementById('sessStatus').textContent='リセット済 — スタートを押してください';
 });
 
-// KENDO GEAR: 起動時に剣道モードで初期化
-(function initKendo() {
+// ══════════════ KENDO GEAR 初期化 ══════════════
+(function initKendo(){
   currentSport = 'budo';
   selectedIndicators = new Set(['power','rotation','rhythm','balance','fatigue']);
-  // 測定バッジ設定
+  // スポーツバッジを設定
   const info = SPORT_INFO['budo'];
   if (info) {
+    const badge = document.getElementById('sportBadge');
+    if (badge) { badge.textContent = '剣道'; badge.style.cssText = 'background:rgba(232,138,10,.15);color:#E88A0A;border:1px solid rgba(232,138,10,.4)'; }
     const measBadge = document.getElementById('measSportBadge');
-    if (measBadge) {
-      measBadge.textContent = info.name;
-      measBadge.style.cssText = 'background:'+info.bg+';color:'+info.color+';border:1px solid '+info.color+'40';
-    }
+    if (measBadge) { measBadge.textContent = '剣道'; measBadge.style.cssText = 'background:rgba(232,138,10,.15);color:#E88A0A;border:1px solid rgba(232,138,10,.4)'; }
   }
-  buildActiveMetrics();
+  // 指標パネルを構築
+  if (typeof buildActiveMetrics === 'function') buildActiveMetrics();
 })();
 </script>
 </body>
